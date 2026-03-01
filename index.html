@@ -79,12 +79,8 @@
         transform: translateY(100vh) rotate(0deg) scale(0);
         opacity: 0;
       }
-      10% {
-        opacity: 1;
-      }
-      90% {
-        opacity: 1;
-      }
+      10% { opacity: 1; }
+      90% { opacity: 1; }
       100% {
         transform: translateY(-20vh) rotate(360deg) scale(1);
         opacity: 0;
@@ -133,28 +129,10 @@
       opacity: 0.5;
     }
 
-    .corner-decor.top-left {
-      top: 12px;
-      left: 12px;
-    }
-
-    .corner-decor.top-right {
-      top: 12px;
-      right: 12px;
-      transform: scaleX(-1);
-    }
-
-    .corner-decor.bottom-left {
-      bottom: 12px;
-      left: 12px;
-      transform: scaleY(-1);
-    }
-
-    .corner-decor.bottom-right {
-      bottom: 12px;
-      right: 12px;
-      transform: scale(-1);
-    }
+    .corner-decor.top-left { top: 12px; left: 12px; }
+    .corner-decor.top-right { top: 12px; right: 12px; transform: scaleX(-1); }
+    .corner-decor.bottom-left { bottom: 12px; left: 12px; transform: scaleY(-1); }
+    .corner-decor.bottom-right { bottom: 12px; right: 12px; transform: scale(-1); }
 
     /* Content styling */
     .greeting {
@@ -198,7 +176,7 @@
     .wishes {
       display: flex;
       flex-direction: column;
-      gap: 24px;
+      gap: 20px;
     }
 
     .wish-item {
@@ -211,6 +189,7 @@
     .wish-item:nth-child(1) { animation-delay: 0.9s; }
     .wish-item:nth-child(2) { animation-delay: 1.1s; }
     .wish-item:nth-child(3) { animation-delay: 1.3s; }
+    .wish-item:nth-child(4) { animation-delay: 1.5s; }
 
     .wish-text {
       font-family: 'Cormorant Garamond', serif;
@@ -219,13 +198,20 @@
       color: var(--text-primary);
       font-weight: 400;
     }
+    
+    /* Specific style for Aamiin to make it stand out */
+    .wish-item.special .wish-text {
+      color: var(--accent-light);
+      font-weight: 600;
+      font-size: clamp(18px, 5vw, 22px);
+      margin-top: 8px;
+    }
 
     /* Interactive button */
     .celebrate-btn {
       display: flex;
       align-items: center;
       justify-content: center;
-      gap: 8px;
       margin-top: 36px;
       padding: 14px 28px;
       background: linear-gradient(135deg, rgba(241, 196, 15, 0.2), rgba(241, 196, 15, 0.08));
@@ -239,7 +225,7 @@
       transition: all 0.3s ease;
       opacity: 0;
       animation: fade-in 0.6s ease-out forwards;
-      animation-delay: 1.5s;
+      animation-delay: 1.7s;
       width: 100%;
     }
 
@@ -267,7 +253,7 @@
       letter-spacing: 2px;
       opacity: 0;
       animation: fade-in 1s ease-out forwards;
-      animation-delay: 2s;
+      animation-delay: 2.2s;
       z-index: 20;
     }
 
@@ -282,10 +268,6 @@
       left: 50%;
       transform: translateX(-50%);
       z-index: 50;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      gap: 8px;
     }
 
     .music-toggle {
@@ -301,7 +283,7 @@
       transition: all 0.3s ease;
       opacity: 0;
       animation: fade-in 0.6s ease-out forwards;
-      animation-delay: 1.8s;
+      animation-delay: 2s;
     }
 
     .music-toggle:hover {
@@ -322,13 +304,6 @@
       width: 22px;
       height: 22px;
       fill: var(--accent-yellow);
-    }
-
-    .music-label {
-      font-size: 11px;
-      color: var(--text-muted);
-      letter-spacing: 1px;
-      text-transform: uppercase;
     }
 
     /* Hidden YouTube iframe */
@@ -376,9 +351,7 @@
     }
 
     @keyframes fade-in {
-      to {
-        opacity: 1;
-      }
+      to { opacity: 1; }
     }
 
     /* Reduced motion */
@@ -388,30 +361,21 @@
         animation-iteration-count: 1 !important;
         transition-duration: 0.01ms !important;
       }
-      
-      .particle {
-        display: none;
-      }
+      .particle { display: none; }
     }
 
     /* Responsive adjustments */
     @media (min-width: 400px) {
-      .card {
-        padding: 48px 36px;
-      }
+      .card { padding: 48px 36px; }
     }
 
     @media (min-height: 700px) {
-      body {
-        padding: 30px 20px;
-        padding-bottom: 90px;
-      }
+      body { padding: 30px 20px; padding-bottom: 90px; }
     }
   </style>
 </head>
 <body>
   <div class="bg-gradient"></div>
-
   <div id="particles"></div>
 
   <!-- Hidden YouTube player -->
@@ -444,22 +408,26 @@
         <circle cx="30" cy="30" r="2" fill="#f1c40f"/>
       </svg>
 
-      <h1 class="greeting">Happy Birthday</h1>
+      <h1 class="greeting">Happy Birthday,</h1>
       <h2 class="name">Miss Abil</h2>
       
       <div class="divider"></div>
       
       <div class="wishes">
         <div class="wish-item">
-          <p class="wish-text">May Allah bless you with many more years of goodness.</p>
+          <p class="wish-text">Wishing you a blessed life filled with many more beautiful years ahead.</p>
         </div>
         
         <div class="wish-item">
-          <p class="wish-text">May you grow ever more shalihah, wise, and successful.</p>
+          <p class="wish-text">May you grow even more shalihah, sharper in mind and wiser in heart, and continue to achieve success in everything you pursue.</p>
         </div>
         
         <div class="wish-item">
-          <p class="wish-text">May He always guide you on the right path.</p>
+          <p class="wish-text">May Allah always guide you and keep you on the straight path.</p>
+        </div>
+
+        <div class="wish-item special">
+          <p class="wish-text">Aamiin.</p>
         </div>
       </div>
       
@@ -480,7 +448,6 @@
         <polygon points="5,3 19,12 5,21"/>
       </svg>
     </button>
-    <span class="music-label"></span>
   </div>
 
   <!-- Signature -->
